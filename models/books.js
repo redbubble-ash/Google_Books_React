@@ -7,6 +7,7 @@ const bookSchema = new Schema({
   description: String,
   image: String,
   link: String,
+  googleId: { type: String, required: true, unique: true }
 });
 
 const Book = mongoose.model("Book", bookSchema);

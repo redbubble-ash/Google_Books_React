@@ -16,8 +16,10 @@ class Books extends Component {
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
+        // if input: "waterfall", then the following is {"name":"title","value":"Waterfall"}
           [name]: value
         });
+        // console.log('name is:'+ JSON.stringify({ name, value }))
       };
 
       handleFormSubmit = event => {
@@ -30,6 +32,9 @@ class Books extends Component {
             .then(res => {
     
               console.log(res.data.items);
+              //if input: "waterfall", then Title is:Waterfall
+              console.log("Title is:" + this.state.title);
+
     
               this.setState({
                 toResults: true,

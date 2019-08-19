@@ -50,18 +50,7 @@ class Saved extends Component {
         return(
             (this.state.ifResults) ? (
                 <div className="container">
-                    <div >
                         <Header/>
-                        <SearchForm
-                        name="title"
-                        value={this.state.title}
-                        onChange = {this.handleInputChange}
-                        />
-                        <SearchButton
-                        onClick={this.handleFormSubmit}
-                        className="btn btn-info"
-                        />
-                    </div>
                     <div>
 
                     <h1 className="heading-title mx-sm-3 mb-2 text-center">Saved Books</h1>

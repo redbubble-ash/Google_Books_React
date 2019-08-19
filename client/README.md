@@ -16,5 +16,4 @@
 * Javasript
 * HTML
 
-## Screenshot:
-# <img alt="YAP" src="../public/readme.gif">
+

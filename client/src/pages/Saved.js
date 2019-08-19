@@ -14,7 +14,7 @@ class Saved extends Component {
     state = {
         books: [],
         target: "",
-        ifResults: false
+        ifResults: true
     };
 
     componentDidMount() {
@@ -65,21 +65,21 @@ class Saved extends Component {
 
                     <h1 className="heading-title mx-sm-3 mb-2 text-center">Saved Books</h1>
                     <ListResult>
-                    {this.state.books.map((book,index)=>(
+                    {this.state.books.map((book)=>(
                         <ListGroup.Item key={book.id}>
                             <div className="order-div">
                                 <a 
-                                href={book.volumeInfo.infoLink}
+                                href={book.link}
                                 target={this.state.target}
                                 >
-                                {book.volumeInfo.title}
+                                {book.title}
                                 </a>
-                                <p>{book.volumeInfo.authors} (Author)</p>
+                                <p>{book.author} (Author)</p>
                                 <p>
                                 <img align="left" style={{paddingRight:10}}
-                                    src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.authors}
+                                    src={book.image} alt={book.title}
                                 />
-                                    {book.volumeInfo.description}
+                                    {book.description}
                                 </p>
                             </div>
                         </ListGroup.Item>

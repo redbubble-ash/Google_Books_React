@@ -14,7 +14,7 @@ function Header() {
             <Nav.Link href="/books" style={{fontWeight: "bold"}}>New Search</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-            <Nav.Link eventKey="link-2" style={{fontWeight: "bold"}}>Saved Books</Nav.Link>
+            <Nav.Link href="/Saved" style={{fontWeight: "bold"}}>Saved Books</Nav.Link>
         </Nav.Item>
         </Nav>
         <Jumbotron style = {{backgroundImage: `url(${Image})`, backgroundSize: "contain"}}>

@@ -54,10 +54,10 @@ class Books extends Component {
       saveBook = book => {
         API.saveBook(book)
           .then(res => {
-            // const currentBooks = this.state.books;
-            // const filterBooks = currentBooks.filter(book => book.id !== res.data.id);
+            const currentBooks = this.state.books;
+            const filterBooks = currentBooks.filter(book => book.id !== res.data.id);
             this.setState({
-              books: book
+              books: filterBooks
             });
           })
           .catch(err => console.log(err));
@@ -98,7 +98,7 @@ class Books extends Component {
                                 <p>{book.volumeInfo.authors} (Author)</p>
                                 <p>
                                 <img align="left" style={{paddingRight:10}}
-                                    src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.authors}
+                                    src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title}
                                 />
                                     {book.volumeInfo.description}
                                 </p>

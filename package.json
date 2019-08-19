@@ -1,6 +1,9 @@
 {
   "name": "google-book",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.3.1"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -11,7 +14,7 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
   },
   "author": "",
   "license": "ISC",

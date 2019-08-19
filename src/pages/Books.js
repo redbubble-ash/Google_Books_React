@@ -12,6 +12,7 @@ class Books extends Component {
     state = {
         title: "",
         toResults: false,
+        results: [],
         books: [],
         target: ""
 
@@ -42,12 +43,25 @@ class Books extends Component {
     
               this.setState({
                 toResults: true,
-                books: res.data.items
+                results: res.data.items
               });
             })
             .catch(err => console.log(err));
         }
       };
+
+      saveBook = book => {
+        API.saveBook(book)
+          .then(res => {
+            const currentBooks = this.state.books;
+            const filterBooks = currentBooks.filter(book => book.id !== res.data.id);
+            this.setState({
+              books: filterBooks
+            });
+          })
+          .catch(err => console.log(err));
+      }
+    
     
 
     render(){
@@ -68,7 +82,7 @@ class Books extends Component {
                 <div className="col-10 col-centered card-content mb-4">
                 <h1 className="heading-title mx-sm-3 mb-2 text-center">Search Results</h1>
                 <ListResult>
-                    {this.state.books.map((book,index)=>(
+                    {this.state.results.map((book,index)=>(
                         <ListGroup.Item key={book.id}>
                             <div className="order-div">
                                 <a 

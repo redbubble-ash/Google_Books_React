@@ -6,7 +6,7 @@ function SearchForm(props){
     return(
             <Form>
             <Form.Group controlId="formBasicEmail">
-                <Form.Label>Enter Book Title</Form.Label>
+                <Form.Label style={{fontWeight: "bold"}}>Enter Book Title</Form.Label>
                 <Form.Control size="lg" type="text" placeholder="Search Book Title (requied)" {...props} />
             </Form.Group>
             </Form>

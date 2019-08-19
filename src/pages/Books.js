@@ -11,10 +11,11 @@ import BookSaveBtn from "../components/BookSaveBtn";
 class Books extends Component {
     state = {
         title: "",
-        toResults: false,
+        ifResults: false,
         results: [],
         books: [],
-        target: ""
+        target: "",
+        message: "Simply search for books via the Google Books API"
 
     }
 
@@ -42,7 +43,7 @@ class Books extends Component {
 
     
               this.setState({
-                toResults: true,
+                ifResults: true,
                 results: res.data.items
               });
             })
@@ -62,12 +63,12 @@ class Books extends Component {
           .catch(err => console.log(err));
       }
     
-    
+
 
     render(){
         return(
             <div className="container">
-                <div className="row">
+                <div >
                     <Header/>
                     <SearchForm
                     name="title"
@@ -76,26 +77,28 @@ class Books extends Component {
                     />
                     <SearchButton
                     onClick={this.handleFormSubmit}
+                    className="btn btn-info"
                     />
                 </div>
-                <div className="row">
+                <div >
                 <div className="col-10 col-centered card-content mb-4">
+              {this.state.ifResults ?(
+                <div>
                 <h1 className="heading-title mx-sm-3 mb-2 text-center">Search Results</h1>
                 <ListResult>
                     {this.state.results.map((book,index)=>(
                         <ListGroup.Item key={book.id}>
                             <div className="order-div">
                                 <a 
-                                key={""+ index + book.id}
                                 href={book.volumeInfo.infoLink}
                                 target={this.state.target}
                                 >
                                 {book.volumeInfo.title}
                                 </a>
-                                <p>{book.volumeInfo.authors[0]} (AUTHOR)</p>
+                                <p>{book.volumeInfo.authors} (Author)</p>
                                 <p>
                                 <img align="left" style={{paddingRight:10}}
-                                    src={book.volumeInfo.imageLinks.smallThumbnail} alt="new"
+                                    src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.authors}
                                 />
                                     {book.volumeInfo.description}
                                 </p>
@@ -119,6 +122,14 @@ class Books extends Component {
 
                     ))}
                 </ListResult>
+                </div>
+                ) :(
+                    <div>
+                    </div>
+                    
+
+                )
+                }
 
                 </div>
                 </div>

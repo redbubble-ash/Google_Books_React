@@ -6,15 +6,15 @@ import Image from "./books.jpg"
 function Header() {
     return(
         <div>
-        <Nav activeKey="/books" onSelect={selectedKey => alert(`selected ${selectedKey}`)}>
+        <Nav activeKey="/books" >
         <Nav.Item>
-            <Nav.Link href="/books">Home</Nav.Link>
+            <Nav.Link href="/books" style={{fontWeight: "bold"}}>Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-            <Nav.Link eventKey="link-1">New Search</Nav.Link>
+            <Nav.Link href="/books" style={{fontWeight: "bold"}}>New Search</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-            <Nav.Link eventKey="link-2">Saved Books</Nav.Link>
+            <Nav.Link eventKey="link-2" style={{fontWeight: "bold"}}>Saved Books</Nav.Link>
         </Nav.Item>
         </Nav>
         <Jumbotron style = {{backgroundImage: `url(${Image})`, backgroundSize: "contain"}}>

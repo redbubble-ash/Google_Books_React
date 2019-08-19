@@ -5,6 +5,7 @@ import SearchButton from "../components/SearchButton";
 import ListResult from "../components/ListResult";
 import API from "../utils/API";
 import ListGroup from "react-bootstrap/ListGroup";
+import DeleteBtn from "../components/DeleteBtn";
 
 
 
@@ -81,6 +82,15 @@ class Saved extends Component {
                                 />
                                     {book.description}
                                 </p>
+                            </div>
+                            <div className="book-btn-div">
+                            <DeleteBtn
+                                key={book._id + "btn"}
+                                btntype="info"
+                                id={book._id}
+                                disabled={book.link === "/"}
+                                onClick={() => this.deleteBook(book._id)}
+                            />
                             </div>
                         </ListGroup.Item>
 

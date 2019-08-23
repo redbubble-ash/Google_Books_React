@@ -2,6 +2,9 @@
   "name": "google-book",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "11.7.0"
+  },
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.18.0",
